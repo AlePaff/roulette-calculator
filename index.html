@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roulette Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+</head>
+<body>
+    <!-- <div class="sidebar">
+        <h2>Opciones</h2>
+        <form id="roulette-options">
+            <label for="zero-type">Selecciona el tipo de ruleta:</label>
+            <select id="zero-type" name="zero-type">
+                <option value="single-zero">0</option>
+                <option value="double-zero">00</option>
+            </select>
+        </form>
+    </div> -->
+    
+    <div class="roullete-container">
+        <div class="container-first">
+            <div class="zero-item roulette-number">
+                <div class="value" data-value="0">0</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="1">1</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="2">2</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="3">3</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="4">4</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="5">5</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="6">6</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="7">7</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="8">8</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="9">9</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="10">10</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="11">11</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="12">12</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="13">13</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="14">14</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="15">15</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="16">16</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="17">17</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="18">18</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="19">19</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="20">20</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="21">21</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="22">22</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="23">23</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="24">24</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="25">25</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="26">26</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="27">27</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="28">28</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="29">29</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="30">30</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="31">31</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="32">32</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="33">33</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="34">34</div>
+            </div>
+            <div class="black-item roulette-number">
+                <div class="value" data-value="35">35</div>
+            </div>
+            <div class="red-item roulette-number">
+                <div class="value" data-value="36">36</div>
+            </div>
+            <div class="column-item">
+                <div class="value">2 to 1</div>
+            </div>
+            <div class="column-item">
+                <div class="value">2 to 1</div>
+            </div>
+            <div class="column-item">
+                <div class="value">2 to 1</div>
+            </div>
+        </div>
+        <div class="container-second">
+            <div class="doz-item">
+                <div>1st 12</div>
+            </div>
+            <div class="doz-item">
+                <div>2nd 12</div>
+            </div>
+            <div class="doz-item">
+                <div>3rd 12</div>
+            </div>
+        </div>
+        <div class="container-third">
+            <div class="outside-section">
+                <div>1-18</div>
+            </div>
+            <div class="outside-section">
+                <div>EVEN</div>
+            </div>
+            <div class="outside-section">
+                <div><div class="rhomb-red"></div></div>
+            </div>
+            <div class="outside-section">
+                <div><div class="rhomb-black"></div></div>
+            </div>
+            <div class="outside-section">
+                <div>ODD</div>
+            </div>
+            <div class="outside-section">
+                <div>19-36</div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="number-history-container">
+        <h3>History</h3>
+        <div id="number-history"></div>
+    </div>
+
+    <section id="statistics">
+        <h2>Estadísticas de ruleta:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Color</th>
+                    <th>Cantidad</th>
+                    <th>Probabilidad (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Black</td>
+                    <td id="black-count">0</td>
+                    <td id="black-probability">0%</td>
+                </tr>
+                <tr>
+                    <td>Red</td>
+                    <td id="red-count">0</td>
+                    <td id="red-probability">0%</td>
+                </tr>
+            </tbody>
+        </table>
+ <!-- Tabla para Odd y Even -->
+ <h3>Paridad</h3>
+ <table>
+     <thead>
+         <tr>
+             <th>Tipo</th>
+             <th>Cantidad</th>
+             <th>Probabilidad (%)</th>
+         </tr>
+     </thead>
+     <tbody>
+         <tr>
+             <td>Odd</td>
+             <td id="odd-count">0</td>
+             <td id="odd-probability">0%</td>
+         </tr>
+         <tr>
+             <td>Even</td>
+             <td id="even-count">0</td>
+             <td id="even-probability">0%</td>
+         </tr>
+     </tbody>
+ </table>
+
+ <!-- Tabla para 1-18 y 19-36 -->
+ <h3>Mitades</h3>
+ <table>
+     <thead>
+         <tr>
+             <th>Rango</th>
+             <th>Cantidad</th>
+             <th>Probabilidad (%)</th>
+         </tr>
+     </thead>
+     <tbody>
+         <tr>
+             <td>1-18</td>
+             <td id="low-range-count">0</td>
+             <td id="low-range-probability">0%</td>
+         </tr>
+         <tr>
+             <td>19-36</td>
+             <td id="high-range-count">0</td>
+             <td id="high-range-probability">0%</td>
+         </tr>
+     </tbody>
+ </table>
+
+ <!-- Tabla para las docenas -->
+ <h3>Docenas</h3>
+ <table>
+     <thead>
+         <tr>
+             <th>Docena</th>
+             <th>Cantidad</th>
+             <th>Probabilidad (%)</th>
+         </tr>
+     </thead>
+     <tbody>
+         <tr>
+             <td>1ra Docena (1-12)</td>
+             <td id="first-dozen-count">0</td>
+             <td id="first-dozen-probability">0%</td>
+         </tr>
+         <tr>
+             <td>2da Docena (13-24)</td>
+             <td id="second-dozen-count">0</td>
+             <td id="second-dozen-probability">0%</td>
+         </tr>
+         <tr>
+             <td>3ra Docena (25-36)</td>
+             <td id="third-dozen-count">0</td>
+             <td id="third-dozen-probability">0%</td>
+         </tr>
+     </tbody>
+ </table>
+
+ <!-- Tabla para los 2 to 1 -->
+ <h3>2 to 1</h3>
+ <table>
+     <thead>
+         <tr>
+             <th>Fila</th>
+             <th>Cantidad</th>
+             <th>Probabilidad (%)</th>
+         </tr>
+     </thead>
+     <tbody>
+         <tr>
+             <td>2 to 1 (Superior)</td>
+             <td id="top-row-count">0</td>
+             <td id="top-row-probability">0%</td>
+         </tr>
+         <tr>
+             <td>2 to 1 (Medio)</td>
+             <td id="middle-row-count">0</td>
+             <td id="middle-row-probability">0%</td>
+         </tr>
+         <tr>
+             <td>2 to 1 (Inferior)</td>
+             <td id="bottom-row-count">0</td>
+             <td id="bottom-row-probability">0%</td>
+         </tr>
+     </tbody>
+ </table>
+
+    </section>
+
+    <section id="recommendations">
+        <h2>Apuestas recomendadas:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Apuesta</th>
+                    <th>Oportunidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Red/Black</td>
+                    <td id="recommend-red-black">Black</td>
+                    <td id="recommend-red-black-number">76.97%</td>
+                </tr>
+                <tr>
+                    <td>Even/Odd</td>
+                    <td id="recommend-even-odd">Even</td>
+                    <td id="recommend-even-odd-number">89.10%</td>
+                </tr>
+                <tr>
+                    <td>1-18/19-36</td>
+                    <td id="recommend-1-18-19-36">19-36</td>
+                    <td id="recommend-1-18-19-36-number">97.56%</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+</body>
+</html>
+
+
