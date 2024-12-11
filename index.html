@@ -190,145 +190,147 @@
 
 
         <div class="sidebar-container">
-        <div class="sidebar">
+            <div class="sidebar">
 
-            <h3>Statistics</h3>
-            <section class="statistics">
-                <table class="stat-item">
-                    <tbody>
-                        <tr>
-                            <td class="black-text">Black</td>
-                            <td id="black-count">0</td>
-                            <td id="black-probability">0%</td>
-                        </tr>
-                        <tr>
-                            <td class="red-text">Red</td>
-                            <td id="red-count">0</td>
-                            <td id="red-probability">0%</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <!-- Tabla para Odd y Even -->
-                <table class="stat-item">
-                    <tbody>
-                        <tr>
-                            <td>Odd</td>
-                            <td id="odd-count">0</td>
-                            <td id="odd-probability">0%</td>
-                        </tr>
-                        <tr>
-                            <td>Even</td>
-                            <td id="even-count">0</td>
-                            <td id="even-probability">0%</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-
-                <!-- Tabla para 1-18 y 19-36 -->
-                <table class="stat-item">
-                    <tbody>
-                        <tr>
-                            <td>1-18</td>
-                            <td id="low-range-count">0</td>
-                            <td id="low-range-probability">0%</td>
-                        </tr>
-                        <tr>
-                            <td>19-36</td>
-                            <td id="high-range-count">0</td>
-                            <td id="high-range-probability">0%</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <!-- Tabla para las docenas -->
-                <table id="my-table" class="stat-item stat-item-custom">
-                    <tbody>
-                        <tr>
-                            <td>1ra Docena (1-12)</td>
-                            <td id="first-dozen-count">0</td>
-                            <td id="first-dozen-probability">0%</td>
-                        </tr>
-                        <tr>
-                            <td>2da Docena (13-24)</td>
-                            <td id="second-dozen-count">0</td>
-                            <td id="second-dozen-probability">0%</td>
-                        </tr>
-                        <tr>
-                            <td>3ra Docena (25-36)</td>
-                            <td id="third-dozen-count">0</td>
-                            <td id="third-dozen-probability">0%</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <!-- Tabla para los 2 to 1 -->
-                <table class="stat-item stat-item-custom">
-                    <tbody>
-                        <tr>
-                            <td>2 to 1 (Superior)</td>
-                            <td id="top-row-count">0</td>
-                            <td id="top-row-probability">0%</td>
-                        </tr>
-                        <tr>
-                            <td>2 to 1 (Medio)</td>
-                            <td id="middle-row-count">0</td>
-                            <td id="middle-row-probability">0%</td>
-                        </tr>
-                        <tr>
-                            <td>2 to 1 (Inferior)</td>
-                            <td id="bottom-row-count">0</td>
-                            <td id="bottom-row-probability">0%</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </section>
-
-            <section id="recommendations">
-                <h3>Apuestas recomendadas:</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Apuesta</th>
-                            <th>Oportunidad</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Red/Black</td>
-                            <td id="recommend-red-black">Black</td>
-                            <td id="recommend-red-black-number">0%</td>
-                        </tr>
-                        <tr>
-                            <td>Even/Odd</td>
-                            <td id="recommend-odd-even">Even</td>
-                            <td id="recommend-odd-even-number">0%</td>
-                        </tr>
-                        <tr>
-                            <td>1-18/19-36</td>
-                            <td id="recommend-low-high">19-36</td>
-                            <td id="recommend-low-high-number">0%</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
-            <section>
-                <label class="switch">
-                    <input type="checkbox" id="roulette-toggle">
-                    <span class="slider"></span>
-                </label>
-                <span id="roulette-label">Ruleta Europea</span>
-
-                <button id="reset-button">Reset</button>
+                <h3>Statistics</h3>
+                <section class="statistics">
+                    <table class="stat-item">
+                        <tbody>
+                            <tr>
+                                <td class="black-text">Black</td>
+                                <td id="black-count">0</td>
+                                <td id="black-probability">0%</td>
+                            </tr>
+                            <tr>
+                                <td class="red-text">Red</td>
+                                <td id="red-count">0</td>
+                                <td id="red-probability">0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- Tabla para Odd y Even -->
+                    <table class="stat-item">
+                        <tbody>
+                            <tr>
+                                <td>Odd</td>
+                                <td id="odd-count">0</td>
+                                <td id="odd-probability">0%</td>
+                            </tr>
+                            <tr>
+                                <td>Even</td>
+                                <td id="even-count">0</td>
+                                <td id="even-probability">0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
 
-            </section>
+                    <!-- Tabla para 1-18 y 19-36 -->
+                    <table class="stat-item">
+                        <tbody>
+                            <tr>
+                                <td>1-18</td>
+                                <td id="low-range-count">0</td>
+                                <td id="low-range-probability">0%</td>
+                            </tr>
+                            <tr>
+                                <td>19-36</td>
+                                <td id="high-range-count">0</td>
+                                <td id="high-range-probability">0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Tabla para las docenas -->
+                    <table id="my-table" class="stat-item stat-item-custom">
+                        <tbody>
+                            <tr>
+                                <td>1ra Docena (1-12)</td>
+                                <td id="first-dozen-count">0</td>
+                                <td id="first-dozen-probability">0%</td>
+                            </tr>
+                            <tr>
+                                <td>2da Docena (13-24)</td>
+                                <td id="second-dozen-count">0</td>
+                                <td id="second-dozen-probability">0%</td>
+                            </tr>
+                            <tr>
+                                <td>3ra Docena (25-36)</td>
+                                <td id="third-dozen-count">0</td>
+                                <td id="third-dozen-probability">0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Tabla para los 2 to 1 -->
+                    <table class="stat-item stat-item-custom">
+                        <tbody>
+                            <tr>
+                                <td>2 to 1 (Superior)</td>
+                                <td id="top-row-count">0</td>
+                                <td id="top-row-probability">0%</td>
+                            </tr>
+                            <tr>
+                                <td>2 to 1 (Medio)</td>
+                                <td id="middle-row-count">0</td>
+                                <td id="middle-row-probability">0%</td>
+                            </tr>
+                            <tr>
+                                <td>2 to 1 (Inferior)</td>
+                                <td id="bottom-row-count">0</td>
+                                <td id="bottom-row-probability">0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </section>
+
+                <section id="recommendations">
+                    <h3>Apuestas recomendadas:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Apuesta</th>
+                                <th>Oportunidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Red/Black</td>
+                                <td id="recommend-red-black">Black</td>
+                                <td id="recommend-red-black-number">0%</td>
+                            </tr>
+                            <tr>
+                                <td>Even/Odd</td>
+                                <td id="recommend-odd-even">Even</td>
+                                <td id="recommend-odd-even-number">0%</td>
+                            </tr>
+                            <tr>
+                                <td>1-18/19-36</td>
+                                <td id="recommend-low-high">19-36</td>
+                                <td id="recommend-low-high-number">0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="controls">
+                    <div>
+                        <label class="switch">
+                            <input type="checkbox" id="roulette-toggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span id="roulette-label">Ruleta Europea</span>
+                    </div>
+
+                    <button id="reset-button">Reset</button>
 
 
-        </div>
+                </section>
+
+
+            </div>
         </div>
 
 

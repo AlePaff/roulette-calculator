@@ -128,8 +128,8 @@ $(document).ready(function () {
         // si es numero entero se muestra sin decimales
         if (Number.isInteger((value / total) * 100))
             return ((value / total) * 100) + "%";
-        // si no es entero se muestra con 2 decimales
-        return ((value / total) * 100).toFixed(2) + "%";
+        // si no es entero se muestra con 1 decimal
+        return ((value / total) * 100).toFixed(1) + "%";
     }
 
     function updateRecommendations(numbers) {
@@ -141,28 +141,47 @@ $(document).ready(function () {
             low: numbers.filter((n) => n >= 1 && n <= 18).length,
             high: numbers.filter((n) => n >= 19 && n <= 36).length,
         };
-
+    
         const total = numbers.length;
-
-        // Recomendaciones
+    
+        // Calcular probabilidades "simples" (sin ajuste)
         const redProb = total === 0 ? 0 : (stats.red / total) * 100;
         const blackProb = total === 0 ? 0 : (stats.black / total) * 100;
-        $("#recommend-red-black").text(redProb > blackProb ? "Red" : "Black");
-        $("#recommend-red-black-number").text((redProb > blackProb ? redProb : blackProb).toFixed(2) + "%");
-
+    
+        // Ajuste condicional basado en eventos recientes
+        let adjustedRedProb = redProb;
+        let adjustedBlackProb = blackProb;
+    
+        if (stats.red > stats.black) {
+            // Si ha salido más rojo, la probabilidad ajustada de rojo se reduce (se favorece negro)
+            adjustedBlackProb += 10; // Le damos un +10% a negro
+            adjustedRedProb -= 10;   // Restamos 10% de la probabilidad de rojo
+        } else if (stats.black > stats.red) {
+            // Si ha salido más negro, la probabilidad ajustada de negro se reduce (se favorece rojo)
+            adjustedRedProb += 10;  // Le damos un +10% a rojo
+            adjustedBlackProb -= 10; // Restamos 10% de la probabilidad de negro
+        }
+    
+        // Mostrar la recomendación ajustada
+        $("#recommend-red-black").text(adjustedRedProb > adjustedBlackProb ? "Red" : "Black");
+        $("#recommend-red-black-number").text((adjustedRedProb > adjustedBlackProb ? adjustedRedProb : adjustedBlackProb).toFixed(1) + "%");
+    
+        // Repetir ajuste para otros eventos como Odd/Even, Low/High, etc.
         const oddProb = total === 0 ? 0 : (stats.odd / total) * 100;
         const evenProb = total === 0 ? 0 : (stats.even / total) * 100;
-        $("#recommend-odd-even").text(oddProb > evenProb ? "Odd" : "Even");
-        $("#recommend-odd-even-number").text((oddProb > evenProb ? oddProb : evenProb).toFixed(2) + "%");
-
+        const adjustedOddProb = oddProb;
+        const adjustedEvenProb = evenProb;
+        $("#recommend-odd-even").text(adjustedOddProb > adjustedEvenProb ? "Odd" : "Even");
+        $("#recommend-odd-even-number").text((adjustedOddProb > adjustedEvenProb ? adjustedOddProb : adjustedEvenProb).toFixed(1) + "%");
+    
         const lowProb = total === 0 ? 0 : (stats.low / total) * 100;
         const highProb = total === 0 ? 0 : (stats.high / total) * 100;
         $("#recommend-low-high").text(lowProb > highProb ? "Low (1-18)" : "High (19-36)");
-        $("#recommend-low-high-number").text((lowProb > highProb ? lowProb : highProb).toFixed(2) + "%");
-
+        $("#recommend-low-high-number").text((lowProb > highProb ? lowProb : highProb).toFixed(1) + "%");
+    
         updateCellColors();
-
     }
+    
 
 
     function updateCellColors() {
