@@ -20,10 +20,11 @@
 	text-align: center;
 	width: 56px;
 	font-size: 30px;
-	color: white;
+	color: #FFEE77;
+    cursor: pointer;
 }
 .zero-item {
-	background-color: green;
+	background-color: #060;
     border-bottom: 3px solid white;
 	padding-top: 110px;
 	padding-bottom: 111px;
@@ -38,13 +39,13 @@
 
 .column-item {
 	border: solid white;
-	background-color: green;
+	background-color: #060;
 	padding-top: 25px;
 	padding-bottom: 25px;
 	text-align: center;
 	width: 80px;
 	font-size: 30px;
-	color: white;
+	color: #FFEE77;
 }
 
 .container-second {
@@ -61,13 +62,13 @@
 .doz-item {
 	flex-basis: 220px;
 	border: solid white;
-	background-color: green;
+	background-color: #060;
 	padding-top: 15px;
 	padding-bottom: 30px;
 	text-align: center;
 	height: 20px;
 	font-size: 30px;
-	color: white;
+	color: #FFEE77;
 }
 
 .container-third {
@@ -83,13 +84,13 @@
 .outside-section {
 	flex-basis: 107px;
 	border: solid white;
-	background-color: green;
+	background-color: #060;
 	padding-top: 15px;
 	padding-bottom: 30px;
 	text-align: center;
 	height: 20px;
 	font-size: 30px;
-	color: white;
+	color: #FFEE77;
 }
 
 .rhomb-red {
@@ -205,6 +206,6 @@ tr:last-child td {
 }
 
 #number-history .green {
-    background-color: green;
+    background-color: #060;
     color: white;
 }

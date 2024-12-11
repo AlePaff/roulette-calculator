@@ -1,6 +1,12 @@
 $(document).ready(function () {
     let selectedNumbers = [];
 
+    const topRow = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36];
+    const middleRow = [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35];
+    const bottomRow = [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34];
+    const redValues = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
+
+
     // Cuando se hace clic en un número
     $(".roulette-number").click(function () {
         const number = parseInt($(this).find(".value").text());
@@ -8,11 +14,10 @@ $(document).ready(function () {
 
         // Llamar a la función para agregar al historial
         addNumberToHistory(number, color);
-
         selectedNumbers.push(number);
+        calculateStatistics(selectedNumbers);
 
         if (selectedNumbers.length >= 3) {
-            calculateStatistics(selectedNumbers);
             updateRecommendations(selectedNumbers);
         }
     });
@@ -41,12 +46,15 @@ $(document).ready(function () {
             firstDozen: 0,
             secondDozen: 0,
             thirdDozen: 0,
+            top: 0,
+            middle: 0,
+            bottom: 0
         };
 
         // Contar cada categoría
         numbers.forEach((num) => {
             if (num === 0) return; // Ignorar el 0
-            if ([1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36].includes(num)) {
+            if (redValues.includes(num)) {
                 stats.red++;
             } else {
                 stats.black++;
@@ -71,6 +79,10 @@ $(document).ready(function () {
             } else if (num >= 25 && num <= 36) {
                 stats.thirdDozen++;
             }
+
+            if (topRow.includes(num)) stats.top++;
+            else if (middleRow.includes(num)) stats.middle++;
+            else if (bottomRow.includes(num)) stats.bottom++;
         });
 
         // Actualizar estadísticas en la tabla
@@ -96,12 +108,19 @@ $(document).ready(function () {
         $("#second-dozen-probability").text(((stats.secondDozen / total) * 100).toFixed(2) + "%");
         $("#third-dozen-count").text(stats.thirdDozen);
         $("#third-dozen-probability").text(((stats.thirdDozen / total) * 100).toFixed(2) + "%");
+
+        $("#top-row-count").text(stats.top);
+        $("#top-row-probability").text(((stats.top / total) * 100).toFixed(2) + "%");
+        $("#middle-row-count").text(stats.middle);
+        $("#middle-row-probability").text(((stats.middle / total) * 100).toFixed(2) + "%");
+        $("#bottom-row-count").text(stats.bottom);
+        $("#bottom-row-probability").text(((stats.bottom / total) * 100).toFixed(2) + "%");
     }
 
     function updateRecommendations(numbers) {
         const stats = {
-            red: numbers.filter((n) => [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36].includes(n)).length,
-            black: numbers.filter((n) => ![1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36].includes(n) && n !== 0).length,
+            red: numbers.filter((n) => redValues.includes(n)).length,
+            black: numbers.filter((n) => !redValues.includes(n) && n !== 0).length,
             even: numbers.filter((n) => n % 2 === 0).length,
             odd: numbers.filter((n) => n % 2 !== 0).length,
             low: numbers.filter((n) => n >= 1 && n <= 18).length,
