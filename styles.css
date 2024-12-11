@@ -6,7 +6,6 @@
 	width: auto;
 	height: 300px;
 	padding: 0px 0px 0px 20px;
-	background-color: green;
     border-top: 2px sold white;
 }
 
@@ -50,7 +49,6 @@
 
 .container-second {
 	display: flex;
-	background-color: green;
 	width: auto;
 	height: 70px;
 	flex-flow: row wrap;
@@ -73,7 +71,6 @@
 
 .container-third {
 	display: flex;
-	background-color: green;
 	width: auto;
 	height: 150px;
 	flex-flow: row wrap;
@@ -116,28 +113,28 @@
 } */
 
 
-.navbar {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    background-color: #f9f9f9;
-    padding: 5px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
 
 
-
-
-
-/*  */
+/* ======= GENERAL ======= */
 .main-container{
     display: grid;
     grid-template-columns: 2fr 1fr;
 }
 
+.roullete-container{
+    background-color: green;
+    border-radius: 20px 0px 0px 20px;
+}
 
 
-/* Estadisticas y recomendaciones */
+
+
+
+
+
+
+
+/* ==== Estadisticas y recomendaciones ===== */
 
 h3 {
     margin-bottom: 2px;
@@ -145,8 +142,18 @@ h3 {
 
 .sidebar{
     display: block;
-    margin-left: 5px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #d5b997;
 }
+
+.sidebar-container {
+    padding: 10px;
+    border-radius: 0px 20px 20px 0px;
+    background-color: #b5854e;
+}
+
+
 
 
 table {
@@ -186,8 +193,9 @@ th, td {
 
 /* Contenedor de historial */
 #number-history-container {
-    margin-top: 20px;
     text-align: center;
+    padding: 10px;
+    color: #FFEE77;
 }
 
 #number-history {
@@ -208,8 +216,7 @@ th, td {
     text-align: center;
     font-size: 14px;
     font-weight: bold;
-    cursor: default;
-    border: 2px solid #000;
+    cursor: pointer;
 }
 
 /* Colores de los números */
@@ -227,3 +234,57 @@ th, td {
     background-color: #060;
     color: white;
 }
+
+
+
+
+/* SWITCH ROULLETE */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-top: 16px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+

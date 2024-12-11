@@ -16,21 +16,13 @@
 </head>
 
 <body>
-    <div class="navbar">
-        <form id="roulette-options">
-            <label for="zero-type">Tipo de ruleta:</label>
-            <select id="zero-type" name="zero-type">
-                <option value="single-zero">0</option>
-                <option value="double-zero">00</option>
-            </select>
-        </form>
-    </div>
-
-
     <div class="main-container">
 
         <div class="roullete-container">
             <div class="container-first">
+                <div id="double-zero" class="zero-item roulette-number" style="display: none;">
+                    <div class="value" data-value="00">00</div>
+                </div>
                 <div class="zero-item roulette-number">
                     <div class="value" data-value="0">0</div>
                 </div>
@@ -197,6 +189,7 @@
         </div>
 
 
+        <div class="sidebar-container">
         <div class="sidebar">
 
             <h3>Statistics</h3>
@@ -292,8 +285,6 @@
 
             </section>
 
-
-
             <section id="recommendations">
                 <h3>Apuestas recomendadas:</h3>
                 <table>
@@ -324,6 +315,20 @@
                 </table>
             </section>
 
+            <section>
+                <label class="switch">
+                    <input type="checkbox" id="roulette-toggle">
+                    <span class="slider"></span>
+                </label>
+                <span id="roulette-label">Ruleta Europea</span>
+
+                <button id="reset-button">Reset</button>
+
+
+            </section>
+
+
+        </div>
         </div>
 
 

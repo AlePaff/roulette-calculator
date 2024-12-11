@@ -7,6 +7,11 @@ $(document).ready(function () {
     const redValues = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
 
 
+    const rouletteToggle = $('#roulette-toggle');
+    const rouletteLabel = $('#roulette-label');
+    const doubleZero = $('#double-zero');
+    const historyContainer = $('#number-history');
+
     // Cuando se hace clic en un número
     $(".roulette-number").click(function () {
         const number = parseInt($(this).find(".value").text());
@@ -144,6 +149,63 @@ $(document).ready(function () {
         const highProb = (stats.high / total) * 100;
         $("#recommend-low-high").text(lowProb > highProb ? "Low (1-18)" : "High (19-36)");
         $("#recommend-low-high-number").text((lowProb > highProb ? lowProb : highProb).toFixed(2) + "%");
+
+        updateCellColors();
+
     }
+
+
+    function updateCellColors() {
+        // Seleccionamos las celdas de porcentaje
+        const redBlackCell = document.getElementById('recommend-red-black-number');
+        const oddEvenCell = document.getElementById('recommend-odd-even-number');
+        const lowHighCell = document.getElementById('recommend-low-high-number');
+        
+        // Función para verificar y aplicar el color
+        function checkAndColor(cell) {
+            const value = parseInt(cell.textContent);  // Obtiene el valor numérico (en %)
+            
+            if (value > 95) {
+                cell.style.color = 'red';  // Cambia el color a rojo si el valor supera el 95%
+            } else {
+                cell.style.color = '';  // Resetea el color si el valor es menor o igual a 95%
+            }
+        }
+    
+        // Llamamos a la función para cada celda de porcentaje
+        checkAndColor(redBlackCell);
+        checkAndColor(oddEvenCell);
+        checkAndColor(lowHighCell);
+    }
+    
+
+
+    // Función para resetear estadísticas e historial
+    function resetStats() {
+        $('#red-count').text(0);
+        $('#black-count').text(0);
+        historyContainer.empty();
+        selectedNumbers = [];        
+    }
+
+    // Evento de cambio para el switch
+    rouletteToggle.change(function () {
+        if (this.checked) {
+            // Ruleta Americana (con 0 y 00)
+            rouletteLabel.text('Ruleta Americana');
+            doubleZero.show();
+        } else {
+            // Ruleta Europea (solo 0)
+            rouletteLabel.text('Ruleta Europea');
+            doubleZero.hide();
+        }
+        resetStats(); // Reiniciar estadísticas
+    });
+
+
+    // Al clickear boton reiniciar
+    $('#reset-button').click(function () {
+        resetStats();
+    });
 });
     
