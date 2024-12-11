@@ -154,15 +154,30 @@ h3 {
 }
 
 
+.black-text {
+    font-weight: bold;
+}
+
+.red-text {
+    font-weight: bold;
+    color: indianred;
+}
+
+#recommend-red-black {
+    font-weight: bold;
+}
 
 
 table {
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-collapse: collapse;
     border: 1px solid #ddd;
 }
 th, td {
+    border-left: 2px solid #ddd;
     text-align: left;
-    padding: 2px;
+    padding: 5px;
     border-bottom: 1px solid #ddd;
 }
 
@@ -286,5 +301,10 @@ input:checked + .slider {
 input:checked + .slider:before {
     transform: translateX(26px);
 }
+
+
+
+
+
 
 

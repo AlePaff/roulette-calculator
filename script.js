@@ -93,33 +93,43 @@ $(document).ready(function () {
         // Actualizar estadísticas en la tabla
         const total = numbers.length;
         $("#black-count").text(stats.black);
-        $("#black-probability").text(((stats.black / total) * 100).toFixed(2) + "%");
+        $("#black-probability").text(percentage(stats.black, total));
         $("#red-count").text(stats.red);
-        $("#red-probability").text(((stats.red / total) * 100).toFixed(2) + "%");
+        $("#red-probability").text(percentage(stats.red, total));
 
         $("#odd-count").text(stats.odd);
-        $("#odd-probability").text(((stats.odd / total) * 100).toFixed(2) + "%");
+        $("#odd-probability").text(percentage(stats.odd, total));
         $("#even-count").text(stats.even);
-        $("#even-probability").text(((stats.even / total) * 100).toFixed(2) + "%");
+        $("#even-probability").text(percentage(stats.even, total));
 
         $("#low-range-count").text(stats.low);
-        $("#low-range-probability").text(((stats.low / total) * 100).toFixed(2) + "%");
+        $("#low-range-probability").text(percentage(stats.low, total));
         $("#high-range-count").text(stats.high);
-        $("#high-range-probability").text(((stats.high / total) * 100).toFixed(2) + "%");
+        $("#high-range-probability").text(percentage(stats.high, total));
 
         $("#first-dozen-count").text(stats.firstDozen);
-        $("#first-dozen-probability").text(((stats.firstDozen / total) * 100).toFixed(2) + "%");
+        $("#first-dozen-probability").text(percentage(stats.firstDozen, total));
         $("#second-dozen-count").text(stats.secondDozen);
-        $("#second-dozen-probability").text(((stats.secondDozen / total) * 100).toFixed(2) + "%");
+        $("#second-dozen-probability").text(percentage(stats.secondDozen, total));
         $("#third-dozen-count").text(stats.thirdDozen);
-        $("#third-dozen-probability").text(((stats.thirdDozen / total) * 100).toFixed(2) + "%");
+        $("#third-dozen-probability").text(percentage(stats.thirdDozen, total));
 
         $("#top-row-count").text(stats.top);
-        $("#top-row-probability").text(((stats.top / total) * 100).toFixed(2) + "%");
+        $("#top-row-probability").text(percentage(stats.top, total));
         $("#middle-row-count").text(stats.middle);
-        $("#middle-row-probability").text(((stats.middle / total) * 100).toFixed(2) + "%");
+        $("#middle-row-probability").text(percentage(stats.middle, total));
         $("#bottom-row-count").text(stats.bottom);
-        $("#bottom-row-probability").text(((stats.bottom / total) * 100).toFixed(2) + "%");
+        $("#bottom-row-probability").text(percentage(stats.bottom, total));
+    }
+
+    function percentage(value, total) {
+        if(total === 0) return "0%";
+
+        // si es numero entero se muestra sin decimales
+        if (Number.isInteger((value / total) * 100))
+            return ((value / total) * 100) + "%";
+        // si no es entero se muestra con 2 decimales
+        return ((value / total) * 100).toFixed(2) + "%";
     }
 
     function updateRecommendations(numbers) {
@@ -135,18 +145,18 @@ $(document).ready(function () {
         const total = numbers.length;
 
         // Recomendaciones
-        const redProb = (stats.red / total) * 100;
-        const blackProb = (stats.black / total) * 100;
+        const redProb = total === 0 ? 0 : (stats.red / total) * 100;
+        const blackProb = total === 0 ? 0 : (stats.black / total) * 100;
         $("#recommend-red-black").text(redProb > blackProb ? "Red" : "Black");
         $("#recommend-red-black-number").text((redProb > blackProb ? redProb : blackProb).toFixed(2) + "%");
 
-        const oddProb = (stats.odd / total) * 100;
-        const evenProb = (stats.even / total) * 100;
+        const oddProb = total === 0 ? 0 : (stats.odd / total) * 100;
+        const evenProb = total === 0 ? 0 : (stats.even / total) * 100;
         $("#recommend-odd-even").text(oddProb > evenProb ? "Odd" : "Even");
         $("#recommend-odd-even-number").text((oddProb > evenProb ? oddProb : evenProb).toFixed(2) + "%");
 
-        const lowProb = (stats.low / total) * 100;
-        const highProb = (stats.high / total) * 100;
+        const lowProb = total === 0 ? 0 : (stats.low / total) * 100;
+        const highProb = total === 0 ? 0 : (stats.high / total) * 100;
         $("#recommend-low-high").text(lowProb > highProb ? "Low (1-18)" : "High (19-36)");
         $("#recommend-low-high-number").text((lowProb > highProb ? lowProb : highProb).toFixed(2) + "%");
 
@@ -185,7 +195,9 @@ $(document).ready(function () {
         $('#red-count').text(0);
         $('#black-count').text(0);
         historyContainer.empty();
-        selectedNumbers = [];        
+        selectedNumbers = [];
+        calculateStatistics(selectedNumbers);
+        updateRecommendations(selectedNumbers);   
     }
 
     // Evento de cambio para el switch
