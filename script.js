@@ -238,5 +238,27 @@ $(document).ready(function () {
     $('#reset-button').click(function () {
         resetStats();
     });
+
+
+
+
+    // Simular 100 tiros
+    $('#simulate-button').click(function () {
+        const numShots = $('#num-shots').val() || 100;  // Obtener el valor o 100 por defecto
+        simulateShots(numShots);
+    });
+
+    function simulateShots(numShots) {
+        selectedNumbers = [];
+        historyContainer.empty();
+        for (let i = 0; i < numShots; i++) {
+            const randomNum = Math.floor(Math.random() * 37); // Números entre 0 y 36
+            const color = redValues.includes(randomNum) ? "red" : (randomNum === 0 ? "green" : "black");
+            addNumberToHistory(randomNum, color);
+            selectedNumbers.push(randomNum);
+        }
+        calculateStatistics(selectedNumbers);
+        updateRecommendations(selectedNumbers);
+    }
 });
     
